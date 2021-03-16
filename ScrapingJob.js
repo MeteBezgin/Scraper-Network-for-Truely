@@ -58,6 +58,12 @@ const launch_browser = async function () {
   } else {
     browser = await puppeteer.launch({
       headless: false,
+      args: [
+        `--proxy-server=${newProxyUrl}`,
+        "--no-sandbox",
+        "--headless",
+        "--disable-gpu",
+      ],
       executablePath: "/usr/bin/chromium-browser",
     });
   }
