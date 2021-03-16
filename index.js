@@ -8,6 +8,7 @@ const port = 80;
 
 app.post("/", (req, res) => {
   console.log(req.body);
+  console.log("aloooo");
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
