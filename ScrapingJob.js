@@ -45,11 +45,9 @@ const launch_browser = async function () {
   let newProxyUrl = await proxyChain.anonymizeProxy(proxyUrl);
   // If we're on production, use Browserless
   if (!process.env.DEVELOPMENT) {
-    browser = await puppeteer.connect({
-      browserWSEndpoint:
-        process.env.BROWSERLESS_WSS ||
-        "wss://chrome.browserless.io?token=38528c19-0af1-44c7-906c-937db5721251",
+    browser = await puppeteer.launch({
       defaultViewport: { width: 1920, height: 1080 },
+      executablePath: "/usr/bin/chromium-browser",
       args: [
         `--proxy-server=${newProxyUrl}`,
         "--no-sandbox",
@@ -60,8 +58,7 @@ const launch_browser = async function () {
   } else {
     browser = await puppeteer.launch({
       headless: false,
-      executablePath:
-        "C:/Users/darkc/Desktop/cc/cc-backend-v2/backend/node_modules/puppeteer/.local-chromium/win64-818858/chrome-win/chrome.exe",
+      executablePath: "/usr/bin/chromium-browser",
     });
   }
   return browser;
