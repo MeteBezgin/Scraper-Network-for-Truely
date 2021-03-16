@@ -2,10 +2,13 @@ const { ScrapingJob } = require("./ScrapingJob");
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-await mongoose.connect(
-  process.env.DATABASE_URL ||
-    "mongodb+srv://mete:mete@cluster0.rolwo.mongodb.net/cc_backend?retryWrites=true&w=majority"
-);
+const connect = async () => {
+  mongoose.connect(
+    process.env.DATABASE_URL ||
+      "mongodb+srv://mete:mete@cluster0.rolwo.mongodb.net/cc_backend?retryWrites=true&w=majority"
+  );
+};
+await connect();
 
 const app = express();
 app.use(express.json());
