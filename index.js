@@ -2,13 +2,11 @@ const { ScrapingJob } = require("./ScrapingJob");
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const connect = async () => {
-  mongoose.connect(
-    process.env.DATABASE_URL ||
-      "mongodb+srv://mete:mete@cluster0.rolwo.mongodb.net/cc_backend?retryWrites=true&w=majority"
-  );
-};
-await connect();
+
+mongoose.connect(
+  process.env.DATABASE_URL ||
+    "mongodb+srv://mete:mete@cluster0.rolwo.mongodb.net/cc_backend?retryWrites=true&w=majority"
+);
 
 const app = express();
 app.use(express.json());
@@ -21,6 +19,9 @@ app.post("/", (req, res) => {
   let domain = req.body.domain;
   let review_site_url_id = req.body.review_site_url_id;
   ScrapingJob(url, service, review_site_url_id, domain);
+  return res.status(200).json({
+    message: "The scraper request has been sent successfully.",
+  });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
