@@ -16,7 +16,7 @@ RUN npm install
 RUN apk add --no-cache \
   udev \
   ttf-freefont \
-  chromium=81.0.4044.113-r0
+  chromium
 
 # Copying the rest of the code to the working directory
 COPY . .
