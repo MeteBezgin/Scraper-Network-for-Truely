@@ -1,7 +1,7 @@
 # Use an official Node runtime as a parent image
 FROM alpine:edge
 
-RUN RUN apk add --no-cache \
+RUN apk add --no-cache \
   chromium \
   nss \
   freetype \
