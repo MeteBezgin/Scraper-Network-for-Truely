@@ -1,9 +1,7 @@
 # Use an official Node runtime as a parent image
 FROM node:12.7.0-alpine
 
-ENV CHROME_BIN="/usr/bin/chromium-browser" \ 
-  PUPPETEER_CHROMIUM_REVISION="81.0.4044.113-r0" \ 
-  PUPPETEER_SKIP_DOWNLOAD="true"
+ENV CHROME_BIN="/usr/bin/chromium-browser" 
 
 # Set the working directory to /app
 WORKDIR '/usr/src/app'
@@ -18,8 +16,8 @@ RUN npm i puppeteer@5.2.1
 
 RUN apk add --no-cache \
   udev \
-  ttf-freefont \
-  chromium
+  ttf-freefont 
+
 
 # Copying the rest of the code to the working directory
 COPY . .
