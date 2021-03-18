@@ -25,7 +25,7 @@
 		"mongoose": "^5.11.7",
 		"proxy-chain": "^0.4.6",
 		"psl": "^1.8.0",
-		"puppeteer": "^5.5.0",
+		"puppeteer": "^5.2.1",
 		"puppeteer-core": "^5.5.0",
 		"puppeteer-extra": "^3.1.16",
 		"puppeteer-extra-plugin-adblocker": "^2.11.9",

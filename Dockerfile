@@ -14,6 +14,8 @@ COPY package.json .
 # Install any needed packages specified in package.json
 RUN npm install
 
+RUN npm i puppeteer@5.2.1
+
 RUN apk add --no-cache \
   udev \
   ttf-freefont \
