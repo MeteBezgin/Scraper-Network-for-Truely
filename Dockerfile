@@ -1,5 +1,18 @@
 # Use an official Node runtime as a parent image
-FROM node:12-alpine
+FROM alpine:edge
+
+RUN RUN apk add --no-cache \
+  chromium \
+  nss \
+  freetype \
+  freetype-dev \
+  harfbuzz \
+  ca-certificates \
+  ttf-freefont \
+  nodejs \
+  yarn
+
+RUN apk add --update npm
 
 ENV CHROME_BIN="/usr/bin/chromium-browser" \ 
   PUPPETEER_SKIP_DOWNLOAD="true"
@@ -12,11 +25,6 @@ COPY package.json .
 
 # Install any needed packages specified in package.json
 RUN npm install
-
-RUN apk add --no-cache \
-  udev \
-  ttf-freefont \
-  chromium
 
 # Copying the rest of the code to the working directory
 COPY . .
