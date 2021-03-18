@@ -1,5 +1,5 @@
 # Use an official Node runtime as a parent image
-FROM node:12.7.0-alpine
+FROM node:12
 
 ENV CHROME_BIN="/usr/bin/chromium-browser" 
 
@@ -11,10 +11,6 @@ COPY package.json .
 
 # Install any needed packages specified in package.json
 RUN npm install
-
-RUN apk add --no-cache \
-  udev \
-  ttf-freefont 
 
 # Copying the rest of the code to the working directory
 COPY . .
