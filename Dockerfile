@@ -10,6 +10,8 @@ WORKDIR '/usr/src/app'
 # Copy package.json to the working directory
 COPY package.json .
 
+RUN npm install puppeteer --unsafe-perm
+
 # Install any needed packages specified in package.json
 RUN npm install
 
