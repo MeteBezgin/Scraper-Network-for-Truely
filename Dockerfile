@@ -2,15 +2,13 @@
 FROM node:12-alpine
 
 ENV CHROME_BIN="/usr/bin/chromium-browser" \ 
-  PUPPETEER_CHROMIUM_REVISION="81.0.4044.113-r0" 
+  PUPPETEER_SKIP_DOWNLOAD="true"
 
 # Set the working directory to /app
 WORKDIR '/usr/src/app'
 
 # Copy package.json to the working directory
 COPY package.json .
-
-RUN npm install puppeteer --unsafe-perm
 
 # Install any needed packages specified in package.json
 RUN npm install
