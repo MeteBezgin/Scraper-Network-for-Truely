@@ -2,8 +2,7 @@
 FROM node:12-alpine
 
 ENV CHROME_BIN="/usr/bin/chromium-browser" \ 
-  PUPPETEER_CHROMIUM_REVISION="72.0.3626.121-r0" \ 
-  PUPPETEER_SKIP_DOWNLOAD="true"
+  PUPPETEER_CHROMIUM_REVISION="81.0.4044.113-r0" 
 
 # Set the working directory to /app
 WORKDIR '/usr/src/app'
@@ -16,7 +15,8 @@ RUN npm install
 
 RUN apk add --no-cache \
   udev \
-  ttf-freefont 
+  ttf-freefont \
+  chromium=81.0.4044.113-r0
 
 # Copying the rest of the code to the working directory
 COPY . .
