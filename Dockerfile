@@ -1,7 +1,9 @@
 # Use an official Node runtime as a parent image
 FROM node:12.7.0-alpine
 
-ENV CHROME_BIN="/usr/bin/chromium-browser" 
+ENV CHROME_BIN="/usr/bin/chromium-browser" \ 
+  PUPPETEER_CHROMIUM_REVISION="81.0.4044.113-r0" 
+
 
 # Set the working directory to /app
 WORKDIR '/usr/src/app'
