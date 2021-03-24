@@ -53,6 +53,8 @@ const launch_browser = async function () {
         "--no-sandbox",
         "--headless",
         "--disable-gpu",
+        "--enable-features=NetworkService",
+        "--ignore-certificate-errors",
       ],
     });
   } else {
@@ -63,6 +65,8 @@ const launch_browser = async function () {
         "--no-sandbox",
         "--headless",
         "--disable-gpu",
+        "--enable-features=NetworkService",
+        "--ignore-certificate-errors",
       ],
       executablePath: "/usr/bin/chromium-browser",
     });
