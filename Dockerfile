@@ -17,6 +17,9 @@ RUN apk add --update npm
 ENV CHROME_BIN="/usr/bin/chromium-browser" \ 
   PUPPETEER_SKIP_DOWNLOAD="true"
 
+
+ENV DEFAULT_IGNORE_HTTPS_ERRORS true
+
 # Set the working directory to /app
 WORKDIR '/usr/src/app'
 
