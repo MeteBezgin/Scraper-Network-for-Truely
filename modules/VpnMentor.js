@@ -2,7 +2,10 @@ const puppeteer = require("puppeteer-core");
 
 const get_page_and_browser_count = async (url, browser) => {
   let page = await browser.newPage();
-  await page.goto(url);
+  await page.goto(url, {
+    waitUntil: "networkidle2",
+    timeout: 0,
+  });
   await page.evaluate(async () => {
     document.querySelector(
       "#user-review > div > div.block-foot > div > ul > li:nth-child(2) > a.open-all-reviews"
