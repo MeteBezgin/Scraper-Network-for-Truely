@@ -25,6 +25,7 @@ const get_page_and_browser_count = async (url, browser) => {
 const initialize = async (url, browser) => {
   console.log("VpnMentor started now.");
   let page_count = await get_page_and_browser_count(url, browser);
+  console.log("Got the page count for VpnMentor");
   let counts = [];
   let pages = [];
   let needed_page_count = Math.floor(page_count / 30);
@@ -41,6 +42,7 @@ const initialize = async (url, browser) => {
     pages.push(await browser.newPage());
   }
   let Data = pages.map(async (page, idx) => {
+    console.log("Inside the main function");
     return page
       .goto(`${url}`, {
         waitUntil: "networkidle2",
