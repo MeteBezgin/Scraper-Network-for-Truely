@@ -200,6 +200,7 @@ const ScrapingJob = async (
       review_site_url_object.status = "Error";
       await scraper.save();
       await service.save();
+      console.log(err);
       return `Errored out with ${err}`;
     });
 };
