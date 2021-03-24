@@ -67,6 +67,7 @@ const launch_browser = async function () {
       executablePath: "/usr/bin/chromium-browser",
     });
   }
+  console.log("Launched browser");
   return browser;
 };
 
@@ -95,7 +96,10 @@ const ScrapingJob = async (
   let review_site_url_object = service.review_sites.id(_reviewSiteURLID);
   let browser;
   review_site_url_object.status = "Processing";
-  service.save().catch((err) => console.log(err.errorMessage));
+  service
+    .save()
+    .then(() => console.log("Status of review site changed to processing."))
+    .catch((err) => console.log(err.errorMessage));
 
   let sub_category = await SubCategory.findById(
     service.sub_category,

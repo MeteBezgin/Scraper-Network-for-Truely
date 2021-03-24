@@ -23,6 +23,7 @@ const get_page_and_browser_count = async (url, browser) => {
 };
 
 const initialize = async (url, browser) => {
+  console.log("VpnMentor started now.");
   let page_count = await get_page_and_browser_count(url, browser);
   let counts = [];
   let pages = [];
