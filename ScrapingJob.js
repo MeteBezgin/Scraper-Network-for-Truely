@@ -48,6 +48,7 @@ const launch_browser = async function () {
     browser = await puppeteer.launch({
       defaultViewport: { width: 1920, height: 1080 },
       executablePath: "/usr/bin/chromium-browser",
+      ignoreHTTPSErrors: true,
       args: [
         `--proxy-server=${newProxyUrl}`,
         "--no-sandbox",
